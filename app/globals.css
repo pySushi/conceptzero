@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  .shimmer {
+    @apply bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Animation to make text appear from left to right */
+.animate-text {
+  display: inline-block;
+  background: linear-gradient(to right, #000, #000 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: reveal 1s forwards ease-in-out;
+}
+
+@keyframes reveal {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes text-appear {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-text {
+  animation: text-appear 0.3s ease-out;
+}
+
+/* @keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s cubic-bezier(0.31, 0.29, 0.62, 0.59) infinite;
+  background: linear-gradient(to right, #eff1f3 5%, #eaeaea 20%, #eff1f3 40%);
+  background-size: 1000px 100%;
+} */
+
+.lucide-circle-dot circle:nth-of-type(2) {
+  r: 4;
+  fill: currentColor;
+}
+
+.lucide-dot circle {
+  r: 4;
+  fill: currentColor;
+}
+
+.bg-dashed-line {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 0px,
+    oklch(0.707 0.022 261.325) 4px,
+    oklch(0.707 0.022 261.325) 0px
+  );
+  background-size: 100% 4px; /* Adjust dash and gap size here */
+  background-position: 0 0;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    to right,
+    oklch(0.707 0.022 261.325) 40%,
+    oklch(0.13 0.028 261.692) 60%,
+    oklch(0.707 0.022 261.325) 80%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: -200% 50%;
+  }
+}
+
+svg path.draw {
+  stroke-dasharray: 96; /* Approximate total length of the path */
+  stroke-dashoffset: 96; /* Start hidden */
+  animation: draw 2s ease-in-out infinite both;
+}
+
+/* When the "complete" class is present, stop the animation and show the final drawn state */
+svg path.draw.complete {
+  animation: none;
+  stroke-dashoffset: 0;
+  stroke: transparent;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 96;
+  }
+}
