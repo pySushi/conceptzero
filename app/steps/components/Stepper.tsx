@@ -42,7 +42,7 @@ const Stepper = () => {
           <div className="flex items-center gap-2 text-sm font-medium text-gray-900">
             <Command className="h-4 w-4" />
             <div className="whitespace-nowrap text-[13px] font-medium text-gray-800 flex gap-1 items-center">
-              <span>Action Plan</span>
+              <span>Steps</span>
               <motion.div
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -66,7 +66,7 @@ const Stepper = () => {
         className="flex w-fit items-center gap-1 cursor-pointer bg-gray-100 px-2 py-1 rounded-xl"
       >
         <Command className="h-4 w-4" />
-        <div className="font-semibold tracking-tight flex">Action Plan</div>
+        <div className="font-semibold tracking-tight flex">Steps</div>
         <motion.div
           animate={{ rotate: isExpanded ? 180 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
