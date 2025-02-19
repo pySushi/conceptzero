@@ -1,21 +1,11 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import "./globals.css";
 import Header from "@/components/Header";
 import { Toaster } from "sonner";
 import Link from "next/link";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title:
@@ -42,9 +32,9 @@ export default function RootLayout({
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
         />
-      </head>
+        </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-gray-900 font-sans bg-white`}
+        className={`${GeistSans.variable} ${GeistMono.variable} antialiased text-gray-900 font-sans bg-white`}
       >
         <div className="relative flex min-h-screen flex-col">
           <Header />
