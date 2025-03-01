@@ -13,8 +13,8 @@ const Header = () => {
           <span className='font-bold'>ConceptZero</span>
         </Link>
         <div className="flex items-center gap-4 sm:gap-8">
-          <Link className="inline-flex gap-0.5 text-sm hover:underline underline-offset-2 decoration-dotted decoration-blue-600 text-gray-500 font-medium hover:text-blue-600" href="https://zerolabs.vercel.app/" target="_blank">
-            Visit ZeroLabs
+          <Link className="inline-flex gap-0.5 text-sm hover:underline underline-offset-2 decoration-dotted decoration-blue-600 text-gray-500 font-medium hover:text-blue-600" href="https://www.buymeacoffee.com/sudeepshouche" target="_blank">
+            Buy Me a Coffee
           </Link>
         </div>
       </div>
